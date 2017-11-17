@@ -28,6 +28,12 @@ public class LevelManager : MonoBehaviour {
         UnityEditor.EditorApplication.isPlaying = false;
     }
 
+    public void LoadNextScene()
+    {
+        int CurrentScene = SceneManager.GetActiveScene().buildIndex;
+        CurrentScene++;
+        SceneManager.LoadScene(CurrentScene);    
+    }
 
 
 
