@@ -7,9 +7,11 @@ public class Ball : MonoBehaviour {
     Paddle paddle;
     Vector3 PaddleBallPosDiff;
     bool GameStarted = false;
-	// Use this for initialization
-	void Start () {
 
+    AudioClip boing;
+    // Use this for initialization
+    void Start () {
+        boing = Resources.Load("Sounds/boing", typeof(AudioClip)) as AudioClip;
         paddle = GameObject.FindObjectOfType<Paddle>();
         PaddleBallPosDiff = this.transform.position - paddle.transform.position;
 
@@ -32,9 +34,12 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (GameStarted)
+        string colName = collision.collider.name;
+        string colTag = collision.collider.tag;
+        //if (GameStarted && (colName == "Paddle" || colName == "LeftBorder" || colName == "RightBorder" || colName == "TopBorder"))
+        if(GameStarted && (colTag != "Breakable"))
         {
-            GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().PlayOneShot(boing);
         }
     }
 }

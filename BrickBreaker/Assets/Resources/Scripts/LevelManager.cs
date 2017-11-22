@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadNewScene(string sceneName)
     {
+        Hit1Brick.breakableCount = 0;
         SceneManager.LoadScene(sceneName);
     }
 
@@ -30,6 +31,7 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadNextScene()
     {
+        Hit1Brick.breakableCount = 0;
         int CurrentScene = SceneManager.GetActiveScene().buildIndex;
         CurrentScene++;
         SceneManager.LoadScene(CurrentScene);    
