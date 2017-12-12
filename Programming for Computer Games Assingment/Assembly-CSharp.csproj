@@ -48,7 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\Resources\Scripts\Ball.cs" />
      <Compile Include="Assets\Resources\Scripts\LevelManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player1Net.cs" />
      <Compile Include="Assets\Resources\Scripts\Player1Paddle.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player2Net.cs" />
      <Compile Include="Assets\Resources\Scripts\Player2Paddle.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>I:/MCAST_2nd_Year_1st_Semester/Programming for Computer Games/Game Repositrie/Programming for Computer Games Assingment/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>

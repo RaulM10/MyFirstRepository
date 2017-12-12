@@ -5,39 +5,37 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     bool GameStarted = false;
-    private int numberOfThrows = 0;
+    int RandomNum;
 
     // Use this for initialization
     void Start () {
         this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        RandomNum = Random.Range(0, 2);
     }
 
 	
 	// Update is called once per frame
 	void Update () {
-        if (numberOfThrows % 2 == 0)
-        {
-            if (Input.GetKeyDown(KeyCode.Space) && !GameStarted)
+            if (Input.GetKeyDown(KeyCode.Space) && !GameStarted && RandomNum % 2 == 0)
             {
                 GameStarted = true;
                 this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 this.GetComponent<Rigidbody2D>().velocity = new Vector2(2f, 10f);
-                numberOfThrows++;
-                print(numberOfThrows);
+                
+                
             }
-        }
+        
 
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Space) && !GameStarted)
+      
+            else if (Input.GetKeyDown(KeyCode.Space) && !GameStarted && RandomNum != 0)
             {
                 GameStarted = true;
                 this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 this.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 10f);
-                numberOfThrows++;
-                print(numberOfThrows);
+                
+                
             }
-        }
+       
       
 
     }

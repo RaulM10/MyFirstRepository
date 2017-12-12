@@ -24,4 +24,9 @@ public class LevelManager : MonoBehaviour {
     {
         UnityEditor.EditorApplication.isPlaying = false;
     }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
