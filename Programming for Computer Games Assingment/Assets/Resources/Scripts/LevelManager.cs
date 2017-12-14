@@ -15,9 +15,11 @@ public class LevelManager : MonoBehaviour {
 		
 	}
 
-    public void LoadNewScene(string SceneName)
+    public void LoadNewScene()
     {
-        SceneManager.LoadScene(SceneName);
+        int CurrentScene = SceneManager.GetActiveScene().buildIndex;
+        CurrentScene++;
+        SceneManager.LoadScene(CurrentScene);
     }
 
     public void QuitGame()
@@ -25,8 +27,5 @@ public class LevelManager : MonoBehaviour {
         UnityEditor.EditorApplication.isPlaying = false;
     }
 
-    public void ReloadLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    
 }
