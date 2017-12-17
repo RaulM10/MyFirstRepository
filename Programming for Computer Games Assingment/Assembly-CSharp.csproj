@@ -47,10 +47,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Resources\Scripts\Ball.cs" />
+     <Compile Include="Assets\Resources\Scripts\EndScreenScript.cs" />
      <Compile Include="Assets\Resources\Scripts\LevelManager.cs" />
-     <Compile Include="Assets\Resources\Scripts\MultipleScoreScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\ObstacleScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player15GoalScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player1MultipleScript.cs" />
      <Compile Include="Assets\Resources\Scripts\Player1Paddle.cs" />
      <Compile Include="Assets\Resources\Scripts\Player1Scores.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player25GoalScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player2MultipleScoreScript.cs" />
      <Compile Include="Assets\Resources\Scripts\Player2Paddle.cs" />
      <Compile Include="Assets\Resources\Scripts\Player2Scores.cs" />
  <Reference Include="Facebook.Unity.Settings">

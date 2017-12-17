@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player2Scores : MonoBehaviour {
 
     LevelManager levelManager = new LevelManager();
     bool gameStarted = false;
     public Text Player2NetScores;
-    public static int Player2Goals;
+    public Text Player2FinalScore;
+    int ToBegin;
+    public static int Player2Goals = 0;
     int RandNum;
     private GameObject ball;
+    private string SceneName;
 
     // Use this for initialization
     void Start () {
-        Player2Goals = 0;
-        Player2NetScores.text = "Player 2: " + Player2Goals;
+        ToBegin = 0;
+        Player2NetScores.text = "Player 2: " + ToBegin;
         ball = GameObject.Find("Ball");
-        RandNum = Random.Range(0, 2);
+        SceneName = SceneManager.GetActiveScene().name;
+        
+        
     }
 	
 	// Update is called once per frame
@@ -36,16 +42,33 @@ public class Player2Scores : MonoBehaviour {
             ball.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 10f);
         }
 
-        if (Player2Goals == 10)
+        if (ToBegin == 10 && SceneName == "Level_01")
         {
-            levelManager.LoadNewScene();
+            levelManager.LoadNewSceneIndex();
+        }
+
+        else if (ToBegin == 20 && SceneName == "Level_02")
+        {
+            levelManager.LoadNewSceneIndex();
+        }
+
+        else if (ToBegin == 50 && SceneName == "Level_03")
+        {
+            levelManager.LoadNewSceneIndex();
+        }
+
+        if (SceneName == "EndScreen")
+        {
+            Player2FinalScore.text = "Player 2 Final Score is " + Player2Goals;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    { 
+    {
+        RandNum = Random.Range(0, 2);
         Player2Goals++;
-        Player2NetScores.text = "Player 2: " + Player2Goals;
+        ToBegin++;
+        Player2NetScores.text = "Player 2: " + ToBegin;
         ball.transform.position = new Vector3(0, 0, -0.5f);
         ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
@@ -58,8 +81,10 @@ public class Player2Scores : MonoBehaviour {
 
     public void AddPoints(int Amount)
     {
+        ToBegin = ToBegin + Amount;
         Player2Goals = Player2Goals + Amount;
-        Player2NetScores.text = "Player 2: " + Player2Goals;
+        Player2NetScores.text = "Player 2: " + ToBegin;
     }
- }
+
+}
 

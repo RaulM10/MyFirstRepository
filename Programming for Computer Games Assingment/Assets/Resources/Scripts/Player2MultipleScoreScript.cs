@@ -1,26 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MultipleScoreScript : MonoBehaviour {
+public class Player2MultipleScoreScript : MonoBehaviour {
 
-    Player1Scores player1Score = new Player1Scores();
+ 
+    private Player2Scores player2Score;
     
 
     // Use this for initialization
-    void Start () {
-		
+    void Start ()
+    {
+        player2Score = GetComponent<Player2Scores>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player1Score.AddPoints(2);
+        player2Score.AddPoints(1);
     }
-
-
 }
