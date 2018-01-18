@@ -10,13 +10,15 @@ public class Hit1Brick : MonoBehaviour {
     LevelManager LevelManager = new LevelManager();
     public static int breakableCount = 0;
     AudioClip crack;
+   
 
 	// Use this for initialization
 	void Start () {
         crack = Resources.Load("Sounds/crack", typeof(AudioClip)) as AudioClip;
         TimesHit = 0;
         breakableCount++;
-        print(breakableCount);
+        
+       
 	}
 	
 	// Update is called once per frame
@@ -35,13 +37,16 @@ public class Hit1Brick : MonoBehaviour {
         {
             //TestWin();
             breakableCount--;
-            print(breakableCount);
+            if (breakableCount <= 0)
+            {
+                Win();
+            }
             Destroy(gameObject);
         }
     }
 
-   /* void TestWin()
+    void Win()
     {
         LevelManager.LoadNextScene();
-    }*/
+    }
 }

@@ -41,5 +41,7 @@ public class Ball : MonoBehaviour {
         {
             GetComponent<AudioSource>().PlayOneShot(boing);
         }
+
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-0.2f, 0.2f), 0f);
     }
 }
